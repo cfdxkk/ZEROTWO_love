@@ -7,8 +7,9 @@
     <router-view name="FRANXXhole"></router-view>
     <router-link to="/">返回首页 </router-link>
   </div>
-
+e
 </template>
+
 
 <script>
 export default {
