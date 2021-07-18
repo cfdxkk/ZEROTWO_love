@@ -18,9 +18,8 @@ const routes = [
   {
     path: '/',
     name: 'indexpage',
-    components: {
-      indexPage
-    }
+    component: indexPage
+
   },
   {
     path: '/FRANXX',

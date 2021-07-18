@@ -9,7 +9,7 @@
       <div id="topbarleftbox">
 
         <div id="userbar">
-          <div id="userbox">username</div>
+          <div id="userbox">{{ username }}</div>
         </div>
         <div id="whiteline1"></div>
 
@@ -36,6 +36,11 @@
 <script>
 export default {
   name: "indexPage_topbar",
+  data: () => {
+    return {
+      username: "cfdxkkcfdxkkcf",
+    }
+  },
   methods: {
     topbarenter: () => {
 
@@ -508,12 +513,13 @@ export default {
 
 #userbox{
 
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
   /* background-color: orange; */
 
   position: absolute;
-  left: 55px;
+  right: 27px;
+  top: 1px;
 
 
   line-height: 28px;

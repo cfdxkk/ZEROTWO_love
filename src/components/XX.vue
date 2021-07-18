@@ -120,80 +120,12 @@ export default {
 
 
 
+
+
+
+
       // 监听窗口尺寸改变
-      window.addEventListener('resize',function () {
-
-
-        if (window.innerWidth) {     // 获取页面高度
-          this.winWidth = window.innerWidth
-        }else if ((document.body) && (document.body.clientWidth)){
-          this.winWidth = document.body.clientWidth;
-        }
-
-        if (window.innerHeight){     // 获取页面宽度
-          this.winHeight = window.innerHeight
-        }else if ((document.body) && (document.body.clientHeight)){
-          this.winHeight = document.body.clientHeight
-        }
-
-        let italyLine_LeftTopX = this.winWidth * 0.368489,
-            italyLine_LeftBottomX = italyLine_LeftTopX - (1/(Math.tan((65*(Math.PI/180))))) * this.winHeight
-        console.log("(XX)italyLine_LeftBottomX:" + italyLine_LeftBottomX);
-
-
-        if( (this.winWidth/this.winHeight) > 2.5 ){
-          // console.log(this.winwidth);
-
-          console.log("我的屏幕实在是太tm宽了，比例大于2.5啦");
-          let logoLeft = ""
-          logoLeft =      ((italyLine_LeftTopX + italyLine_LeftBottomX)/2) - (this.winWidth * 0.02)      +      "px"
-
-          // console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-          // console.log("(XX)topPoint:" + italyLine_LeftTopX);
-          // console.log("(XX)bottomPoint:" + italyLine_LeftBottomX);
-          // console.log("(XX)logoLeft:"+logoLeft);
-          document.getElementById("xxlogo").style.left = logoLeft
-
-        } else if( 2.5 >= (this.winWidth/this.winHeight) && ((this.winWidth/this.winHeight) >= 0.8701298 && italyLine_LeftBottomX > 0 )){
-
-          // console.log(this.winwidth);
-
-          console.log("我的屏幕刚刚好");
-          let logoLeft = ""
-          console.log("(XX)winWidht" + this.winWidth);
-          logoLeft =      ((italyLine_LeftTopX + italyLine_LeftBottomX)/2) - 80     +      "px"
-
-          // console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-          // console.log("(XX)topPoint:" + italyLine_LeftTopX);
-          // console.log("(XX)bottomPoint:" + italyLine_LeftBottomX);
-          // console.log("(XX)logoLeft:"+logoLeft);
-          document.getElementById("xxlogo").style.left = logoLeft
-
-        } else if ( italyLine_LeftBottomX <= 0 ) {
-          if ((this.winWidth/this.winHeight) < 0.25) {
-            console.log("你用的是苹果30吗？");
-            document.getElementById("xxlogo").style.left = "5vw"
-          } else {
-            // console.log(this.winwidth);
-            console.log("我的屏幕是竖着放的");
-            let logoLeft = ""
-            logoLeft =      "50px"
-
-            // console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-            // console.log("(XX)topPoint:" + italyLine_LeftTopX);
-            // console.log("(XX)bottomPoint:" + italyLine_LeftBottomX);
-            // console.log("(XX)logoLeft:"+logoLeft);
-            document.getElementById("xxlogo").style.left = logoLeft
-          }
-
-
-        } else {
-          console.log("特殊形状的屏幕，此项用于兜底");
-          document.getElementById("xxlogo").style.left = "5vw"
-        }
-
-
-      })
+      window.addEventListener('resize', this.listenAndSetXXpozation)
 
 
 
@@ -218,10 +150,86 @@ export default {
           }
       )
 
+    },
+    listenAndSetXXpozation () {
+
+
+      if (window.innerWidth) {     // 获取页面高度
+        this.winWidth = window.innerWidth
+      }else if ((document.body) && (document.body.clientWidth)){
+        this.winWidth = document.body.clientWidth;
+      }
+
+      if (window.innerHeight){     // 获取页面宽度
+        this.winHeight = window.innerHeight
+      }else if ((document.body) && (document.body.clientHeight)){
+        this.winHeight = document.body.clientHeight
+      }
+
+      let italyLine_LeftTopX = this.winWidth * 0.368489,
+          italyLine_LeftBottomX = italyLine_LeftTopX - (1/(Math.tan((65*(Math.PI/180))))) * this.winHeight
+      console.log("(XX)italyLine_LeftBottomX:" + italyLine_LeftBottomX);
+
+
+      if( (this.winWidth/this.winHeight) > 2.5 ){
+        // console.log(this.winwidth);
+
+        console.log("我的屏幕实在是太tm宽了，比例大于2.5啦");
+        let logoLeft = ""
+        logoLeft =      ((italyLine_LeftTopX + italyLine_LeftBottomX)/2) - (this.winWidth * 0.02)      +      "px"
+
+        // console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        // console.log("(XX)topPoint:" + italyLine_LeftTopX);
+        // console.log("(XX)bottomPoint:" + italyLine_LeftBottomX);
+        // console.log("(XX)logoLeft:"+logoLeft);
+        document.getElementById("xxlogo").style.left = logoLeft
+
+      } else if( 2.5 >= (this.winWidth/this.winHeight) && ((this.winWidth/this.winHeight) >= 0.8701298 && italyLine_LeftBottomX > 0 )){
+
+        // console.log(this.winwidth);
+
+        console.log("我的屏幕刚刚好");
+        let logoLeft = ""
+        console.log("(XX)winWidht" + this.winWidth);
+        logoLeft =      ((italyLine_LeftTopX + italyLine_LeftBottomX)/2) - 80     +      "px"
+
+        // console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        // console.log("(XX)topPoint:" + italyLine_LeftTopX);
+        // console.log("(XX)bottomPoint:" + italyLine_LeftBottomX);
+        // console.log("(XX)logoLeft:"+logoLeft);
+        document.getElementById("xxlogo").style.left = logoLeft
+
+      } else if ( italyLine_LeftBottomX <= 0 ) {
+        if ((this.winWidth/this.winHeight) < 0.25) {
+          console.log("你用的是苹果30吗？");
+          document.getElementById("xxlogo").style.left = "5vw"
+        } else {
+          // console.log(this.winwidth);
+          console.log("我的屏幕是竖着放的");
+          let logoLeft = ""
+          logoLeft =      "50px"
+
+          // console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+          // console.log("(XX)topPoint:" + italyLine_LeftTopX);
+          // console.log("(XX)bottomPoint:" + italyLine_LeftBottomX);
+          // console.log("(XX)logoLeft:"+logoLeft);
+          document.getElementById("xxlogo").style.left = logoLeft
+        }
+
+
+      } else {
+        console.log("特殊形状的屏幕，此项用于兜底");
+        document.getElementById("xxlogo").style.left = "5vw"
+      }
+
+
     }
   },
   mounted() {
     this.setLogoLeft()
+  },
+  unmounted() {
+    window.removeEventListener("resize",this.listenAndSetXXpozation)
   }
 }
 </script>
