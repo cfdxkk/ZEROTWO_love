@@ -18,32 +18,36 @@ const routes = [
   {
     path: '/',
     name: 'indexpage',
-    component: indexPage
-
+    components: {
+      indexPage
+    }
   },
   {
     path: '/FRANXX',
-    name: 'FRANXXbbs',
     component: FRANXXindex,
     children: [
       {
         path: 'picture',
+        name: 'FRANXXpicture',
         components: {
           FRANXXpicture: FRANXXpicture
         }
       },
       {
         path: 'hole',
+        name: 'FRANXXhole',
         components: {
-          FRANXXhole,
+          FRANXXhole
+        }
+      },
+      {
+        path: 'about',
+        name: 'About',
+        components: {
+          About: About
         }
       }
     ]
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: About
   }
 
 

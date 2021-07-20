@@ -13,13 +13,13 @@
         </div>
         <div id="whiteline1"></div>
 
-        <router-link to="/FRANXX/picture">
+        <router-link to="/FRANXX/hole">
           <div id="enterfranxx">
             <div class="textbox1">进入论坛</div>
           </div>
         </router-link>
 
-        <router-link to="/about">
+        <router-link to="/FRANXX/about">
           <div id="whiteline2"></div>
           <div id="about">
             <div class="textbox2">关于</div>
@@ -39,9 +39,123 @@ export default {
   data: () => {
     return {
       username: "cfdxkkcfdxkkcf",
+      barGone: false
     }
   },
   methods: {
+    topbarTitleGone() {
+      let winWidht = 0
+      if (window.innerWidth) {     // 获取页面高度
+        winWidht = window.innerWidth
+      }else if ((document.body) && (document.body.clientWidth)){
+        winWidht = document.body.clientWidth;
+      }
+      if( this.barGone == false){
+        if (winWidht<540){
+
+
+          console.log("(tb)窗口太小了");
+
+
+          document.getElementById("whiteline1").animate(
+              [
+                {
+                  left: "185px"
+
+                },
+                {
+                  left: "-205px"
+
+                }
+              ],
+              {
+                duration: 200,
+                fill: "both",
+                easing: "ease-in-out"
+              }
+          )
+
+
+          document.getElementById("enterfranxx").animate(
+              [
+                {
+                  left: "190px"
+
+                },
+                {
+                  left: "-190px"
+
+                }
+              ],
+              {
+                duration: 200,
+                fill: "both",
+                easing: "ease-in-out"
+              }
+          )
+
+
+          document.getElementById("about").animate(
+              [
+                {
+                  left: "325px"
+
+                },
+                {
+                  left: "-420px"
+
+                }
+              ],
+              {
+                duration: 200,
+                fill: "both",
+                easing: "ease-in-out"
+              }
+          )
+
+
+          document.getElementById("whiteline2").animate(
+              [
+                {
+                  left: "320px"
+
+                },
+                {
+                  left: "-340px"
+
+                }
+              ],
+              {
+                duration: 200,
+                fill: "both",
+                easing: "ease-in-out"
+              }
+          )
+
+          document.getElementById("topbarleftbox").animate(
+              [
+                {
+                  width: "420px"
+
+                },
+                {
+                  width: "200px"
+
+                }
+              ],
+              {
+                duration: 0,
+                fill: "both",
+                easing: "ease-in-out"
+              }
+          )
+
+
+          this.barGone = true
+        }
+      }
+
+    },
     topbarenter: () => {
 
       console.log("topbar出来啦！");
@@ -322,119 +436,6 @@ export default {
 
 
 
-      window.addEventListener('resize', () => {
-        let winWidht = 0
-        if (window.innerWidth) {     // 获取页面高度
-          winWidht = window.innerWidth
-        }else if ((document.body) && (document.body.clientWidth)){
-          winWidht = document.body.clientWidth;
-        }
-        if( isGone == false){
-          if (winWidht<540){
-
-
-            console.log("(tb)窗口太小了");
-
-
-            document.getElementById("whiteline1").animate(
-                [
-                  {
-                    left: "185px"
-
-                  },
-                  {
-                    left: "-205px"
-
-                  }
-                ],
-                {
-                  duration: 200,
-                  fill: "both",
-                  easing: "ease-in-out"
-                }
-            )
-
-
-            document.getElementById("enterfranxx").animate(
-                [
-                  {
-                    left: "190px"
-
-                  },
-                  {
-                    left: "-190px"
-
-                  }
-                ],
-                {
-                  duration: 200,
-                  fill: "both",
-                  easing: "ease-in-out"
-                }
-            )
-
-
-            document.getElementById("about").animate(
-                [
-                  {
-                    left: "325px"
-
-                  },
-                  {
-                    left: "-420px"
-
-                  }
-                ],
-                {
-                  duration: 200,
-                  fill: "both",
-                  easing: "ease-in-out"
-                }
-            )
-
-
-            document.getElementById("whiteline2").animate(
-                [
-                  {
-                    left: "320px"
-
-                  },
-                  {
-                    left: "-340px"
-
-                  }
-                ],
-                {
-                  duration: 200,
-                  fill: "both",
-                  easing: "ease-in-out"
-                }
-            )
-
-            document.getElementById("topbarleftbox").animate(
-                [
-                  {
-                    width: "420px"
-
-                  },
-                  {
-                    width: "200px"
-
-                  }
-                ],
-                {
-                  duration: 0,
-                  fill: "both",
-                  easing: "ease-in-out"
-                }
-            )
-
-
-            isGone = true
-          }
-        }
-
-      })
 
 
 
@@ -442,7 +443,11 @@ export default {
     }
   },
   mounted() {
+    window.addEventListener('resize', this.topbarTitleGone)
     // this.topbarenter()
+  },
+  unmounted() {
+    window.removeEventListener("resize",this.topbarTitleGone)
   }
 }
 </script>
@@ -461,6 +466,7 @@ export default {
   left: -420px;
   top: 0;
 
+  /*不规则形状投影*/
   filter: drop-shadow(2px 3px 3px rgba(50, 50, 0, 0.5));
 }
 

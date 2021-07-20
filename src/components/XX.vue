@@ -125,7 +125,7 @@ export default {
 
 
       // 监听窗口尺寸改变
-      window.addEventListener('resize', this.listenAndSetXXpozation)
+      window.addEventListener('resize', this.listenAndSetXXposition)
 
 
 
@@ -151,7 +151,7 @@ export default {
       )
 
     },
-    listenAndSetXXpozation () {
+    listenAndSetXXposition () {
 
 
       if (window.innerWidth) {     // 获取页面高度
@@ -229,7 +229,7 @@ export default {
     this.setLogoLeft()
   },
   unmounted() {
-    window.removeEventListener("resize",this.listenAndSetXXpozation)
+    window.removeEventListener("resize",this.listenAndSetXXposition)
   }
 }
 </script>
