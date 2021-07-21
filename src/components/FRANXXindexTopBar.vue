@@ -28,11 +28,11 @@
       </div>
 
 <!--        红色和蓝色的三角形块-->
-      <div id="redandblueT">
-        <div id="blueT"></div>
-        <div id="redT"></div>
 
-      </div>
+      <div id="blueT"></div>
+      <div id="redT"></div>
+
+
 
       <div id="upload">
         <div id="uploadtext">
@@ -78,7 +78,26 @@ name: "FRANXXindexTopBar",
           }
       )
 
-      document.getElementById("redandblueT").animate(
+      // document.getElementById("redandblueT").animate(
+      //     [
+      //       {
+      //         opacity: "0"
+      //       },
+      //       {
+      //         opacity: "1"
+      //       }
+      //     ],
+      //     {
+      //       delay: 500,
+      //       duration: 0,
+      //       fill: "forwards",
+      //       easing: "ease-in-out"
+      //     }
+      // )
+
+
+
+      document.getElementById("redT").animate(
           [
             {
               opacity: "0"
@@ -88,22 +107,20 @@ name: "FRANXXindexTopBar",
             }
           ],
           {
-            delay: 500,
+            delay: 200,
             duration: 0,
             fill: "forwards",
             easing: "ease-in-out"
           }
       )
 
-
-
       document.getElementById("redT").animate(
           [
             {
-              right: "-100px"
+              right: "100px"
             },
             {
-              right: "0"
+              right: "180px"
             }
           ],
           {
@@ -118,10 +135,10 @@ name: "FRANXXindexTopBar",
       document.getElementById("blueT").animate(
           [
             {
-              right: "-200px"
+              right: "100px"
             },
             {
-              right: "0px"
+              right: "195px"
             }
           ],
           {
@@ -135,10 +152,15 @@ name: "FRANXXindexTopBar",
       document.getElementById("username").animate(
           [
             {
-              clipPath: "polygon(100% 0, 100% 0%, 200px 100%, 200px 100%)"
+              clipPath: "polygon(calc(100% + 20px) 0, 100% 0%, 200px 100%, 200px 100%)",
+              backgroundColor: "rgba(0, 167, 224, 0.4)",
             },
             {
-              clipPath: "polygon(0 0, 100% 0%, 200px 100%, 0% 100%)"
+              backgroundColor: "rgba(255, 63, 26, 0.2)",
+            },
+            {
+              clipPath: "polygon(20px 0, 100% 0%, 200px 100%, 0% 100%)",
+              backgroundColor: "white",
             }
           ],
           {
@@ -159,11 +181,9 @@ name: "FRANXXindexTopBar",
             [
               {
                 backgroundColor: "black",
-                filter: ""
               },
               {
-                backgroundColor: "white",
-                filter: "url(#inline)"
+                backgroundColor: "#474747",
               }
             ],
             {
@@ -178,7 +198,7 @@ name: "FRANXXindexTopBar",
         uploadBox.animate(
             [
               {
-                backgroundColor: "white"
+                backgroundColor: "#474747"
               },
               {
                 backgroundColor: "black"
@@ -192,35 +212,122 @@ name: "FRANXXindexTopBar",
         )
       })
 
-      const uploadBoxText = document.getElementById("uploadtext")
-      uploadBox.addEventListener("mouseenter",() => {
-        uploadBoxText.animate(
+      // const uploadBoxText = document.getElementById("uploadtext")
+      // uploadBox.addEventListener("mouseenter",() => {
+      //   uploadBoxText.animate(
+      //       [
+      //         {
+      //           color: "white"
+      //         },
+      //         {
+      //           color: "black"
+      //         }
+      //       ],
+      //       {
+      //         duration: 200,
+      //         fill: "both",
+      //         easing: "ease-in-out"
+      //       }
+      //   )
+      // })
+      //
+      //
+      // uploadBox.addEventListener("mouseleave",() => {
+      //   uploadBoxText.animate(
+      //       [
+      //         {
+      //           color: "black"
+      //         },
+      //         {
+      //
+      //           color: "white",
+      //
+      //         }
+      //       ],
+      //       {
+      //         duration: 200,
+      //         fill: "both",
+      //         easing: "ease-in-out"
+      //       }
+      //   )
+      // })
+
+
+
+    },
+    usernameButtonHoverAnime() {
+
+
+      const usernameBox = document.getElementById("username")
+      usernameBox.addEventListener("mouseenter",() => {
+        usernameBox.animate(
+            [
+              {
+                backgroundColor: "white",
+                filter: ""
+              },
+              {
+                backgroundColor: "black",
+                filter: "url(#inline)"
+              }
+            ],
+            {
+              duration: 200,
+              fill: "both",
+              easing: "ease-in-out"
+            }
+        )
+      })
+
+      usernameBox.addEventListener("mouseleave",() => {
+          usernameBox.animate(
+              [
+                {
+                  backgroundColor: "black"
+                },
+                {
+                  backgroundColor: "white"
+                }
+              ],
+              {
+                duration: 200,
+                fill: "both",
+                easing: "ease-in-out"
+              }
+          )
+      })
+
+      const usernameBoxText = document.getElementById("usernametext")
+
+      usernameBox.addEventListener("mouseenter",() => {
+        usernameBoxText.animate(
+            [
+              {
+                color: "black"
+              },
+              {
+                color: "white"
+              }
+            ],
+            {
+              duration: 200,
+              fill: "both",
+              easing: "ease-in-out"
+            }
+        )
+      })
+
+
+
+      usernameBox.addEventListener("mouseleave",() => {
+        usernameBoxText.animate(
             [
               {
                 color: "white"
               },
               {
-                color: "black"
-              }
-            ],
-            {
-              duration: 200,
-              fill: "both",
-              easing: "ease-in-out"
-            }
-        )
-      })
 
-
-      uploadBox.addEventListener("mouseleave",() => {
-        uploadBoxText.animate(
-            [
-              {
-                color: "black"
-              },
-              {
-
-                color: "white",
+                color: "black",
 
               }
             ],
@@ -231,14 +338,23 @@ name: "FRANXXindexTopBar",
             }
         )
       })
+
+
+
+
+
+
+
+
 
 
 
     }
   },
   mounted() {
-    this.uploadButtonHoverAnime()
     this.enterAnime()
+    this.uploadButtonHoverAnime()
+    this.usernameButtonHoverAnime()
   }
 }
 </script>
@@ -336,12 +452,14 @@ name: "FRANXXindexTopBar",
   opacity: 0
 }
 #redT{
-  width: 50%;
-  height: 100%;
+  width: 65px;
+  height: 35px;
 
   position: absolute;
   top: 0px;
   right: 0px;
+
+  opacity: 0;
 
   background-color: #ff3f1a;
 
@@ -349,8 +467,8 @@ name: "FRANXXindexTopBar",
 }
 
 #blueT{
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 30px;
 
   position: absolute;
   top: 0px;
@@ -369,9 +487,11 @@ name: "FRANXXindexTopBar",
   top: 0;
   right: 180px;
 
-  /*background-color: #00a7e0;*/
+  background-color: gray;
 
   clip-path: polygon(100% 0, 100% 0%, 200px 100%, 200px 100%); /*切割*/
+
+  cursor: pointer; /*鼠标指针变成小手*/
 
 }
 #usernametext{
