@@ -153,10 +153,11 @@ name: "FRANXXindexTopBar",
           [
             {
               clipPath: "polygon(calc(100% + 20px) 0, 100% 0%, 200px 100%, 200px 100%)",
-              backgroundColor: "rgba(0, 167, 224, 0.4)",
+              backgroundColor: "rgba(255,34,0,0.4)",
             },
             {
-              backgroundColor: "rgba(255, 63, 26, 0.2)",
+
+              backgroundColor: "rgba(0,195,255,0.2)",
             },
             {
               clipPath: "polygon(20px 0, 100% 0%, 200px 100%, 0% 100%)",

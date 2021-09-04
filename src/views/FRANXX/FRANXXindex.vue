@@ -129,12 +129,13 @@ name: "FRANXXindex",
   },
   methods: {
     flexHotBox() {
-      "hotBox浮动事件被激活"
+
       const oDiv = document.getElementById("hot")
       window.onscroll = function(){
-        console.log("js is run")
+        // console.log("js is run")
         var s = document.body.scrollTop || document.documentElement.scrollTop
         if(s>515) {
+          // console.log("hotBox浮动事件被激活");
           oDiv.style = "position:fixed;top:75px;left: 1175px;"
         } else {
           oDiv.style = ""
@@ -158,7 +159,7 @@ body{
 
 
 .infoFlowBox{
-  height: 10000px;
+  height: 2000px;
   width: 700px;
 
   position: absolute;
